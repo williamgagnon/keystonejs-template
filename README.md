@@ -27,12 +27,8 @@ xcode-select --install # follow the prompts
 ### PostresQL and SQL client
 
 - Install or update PostgresQL 13, either with Brew, but I prefer Postgres.app from <https://postgresapp.com/downloads.html>
-  - In Postgres.app, add a v13 server, initialize and start.
-- Alternatively, if you have Docker installed, easily start a Postgres 13 database using Docker:
 
-```shell
-docker run -it -p 5432:5432 -e POSTGRES_USER=city -e POSTGRES_PASSWORD=postgres postgres:13
-```
+  - In Postgres.app, add a v13 server, initialize and start.
 
 - Install or update Postico (PostgreSQL only SQL client) from <https://eggerapps.at/postico/>, or TablePlus (multi databases SQL client) from <https://tableplus.com/>. I prefer and use TablePlus.
 

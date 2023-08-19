@@ -1,0 +1,87 @@
+{
+  "name": "keystonejs-template",
+  "version": "1.0.0",
+  "description": "A robust KeystoneJS template to quickly get you started.",
+  "private": true,
+  "author": "William G. Gagnon",
+  "scripts": {
+    "dev": "PORT=80 keystone dev",
+    "dev:reset": "PORT=80 keystone dev --reset-db",
+    "migrate": "keystone prisma migrate deploy",
+    "start": "PORT=80 keystone start",
+    "build": "keystone build",
+    "postinstall": "keystone postinstall",
+    "test:unit": "nyc mocha 'tests/**/*.test.ts'",
+    "test:spec": "nyc mocha 'tests/**/*.spec.ts'",
+    "test": "nyc mocha 'tests/**/*.*(test|spec).ts'",
+    "test:nocoverage": "mocha 'tests/**/*.*(test|spec).ts'",
+    "lint": "eslint src tests --max-warnings 0 --ext .ts",
+    "lint:fix": "eslint src tests --ext .ts --fix"
+  },
+  "dependencies": {
+    "@keystone-6/auth": "^1.0.2",
+    "@keystone-6/core": "^1.0.1",
+    "@keystone-6/fields-document": "^1.0.1",
+    "@turf/turf": "^6.5.0",
+    "axios": "^0.25.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "typescript": "^4.5.4",
+    "typescript-optional": "^3.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/autocannon": "^4.1.1",
+    "@types/chai": "^4.3.0",
+    "@types/lodash": "^4.14.179",
+    "@types/mocha": "^9.1.0",
+    "@types/nanographql": "^2.0.1",
+    "@types/node": "^17.0.10",
+    "@types/sinon": "^10.0.11",
+    "@types/sinon-chai": "^3.2.8",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "autocannon": "^7.6.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-chai-expect": "^3.0.0",
+    "eslint-plugin-chai-expect-keywords": "^2.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-mocha": "^10.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "http-constants-ts": "^1.0.7",
+    "mocha": "^9.2.0",
+    "msw": "^0.36.5",
+    "nanographql": "^2.0.0",
+    "prettier": "^2.5.1",
+    "sinon": "^13.0.1",
+    "sinon-chai": "^3.7.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.5.0"
+  },
+  "engines": {
+    "node": "^16.13"
+  },
+  "mocha": {
+    "timeout": "60000",
+    "slow": "1000",
+    "require": [
+      "ts-node/register",
+      "source-map-support/register",
+      "./tests/utils/test-builder.ts"
+    ],
+    "recursive": true
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true,
+    "lines": 93,
+    "branches": 74,
+    "functions": 95,
+    "statements": 93,
+    "cache": false
+  }
+}
